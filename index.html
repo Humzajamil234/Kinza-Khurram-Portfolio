@@ -310,10 +310,9 @@
             transform: scale(1.1);
         }
 
-        /* Hero Section with Enhanced Animations */
+        /* Hero Section with Image - UPDATED LAYOUT */
         .hero {
-            padding: 200px 0 120px;
-            text-align: center;
+            padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
@@ -349,9 +348,19 @@
             }
         }
 
-        .hero-content {
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.5s;
         }
 
         .hero h1 {
@@ -359,9 +368,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.1;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.5s;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -398,24 +404,79 @@
             font-size: 22px;
             color: var(--text-light);
             margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.7s;
             line-height: 1.8;
         }
 
         .hero-contact {
             display: flex;
-            justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
             margin-top: 50px;
+        }
+
+        /* Profile Image Section - UPDATED TO CIRCLE */
+        .hero-image {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.9s;
+            transform: translateY(40px);
+            animation: fadeInUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.7s;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            border: 6px solid transparent;
+            background: var(--gradient);
+            padding: 8px;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float 4s ease-in-out infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-image-container:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(59, 130, 246, 0.3);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            transition: transform 0.5s;
+            border: 4px solid var(--bg-card);
+        }
+
+        .profile-image-container:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .image-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0;
+            border-radius: 50%;
+            transition: opacity 0.5s;
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        .profile-image-container:hover .image-glow {
+            opacity: 0.3;
         }
 
         .contact-btn {
@@ -1503,6 +1564,20 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 1100px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 1fr;
+                gap: 50px;
+            }
+            
+            .hero h1 {
+                font-size: 56px;
+            }
+            
+            .profile-image-container {
+                width: 350px;
+                height: 350px;
+            }
+            
             .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 60px;
@@ -1519,12 +1594,32 @@
         }
 
         @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+            }
+            
             .hero h1 {
                 font-size: 48px;
             }
-
+            
             .hero-subtitle {
                 font-size: 20px;
+            }
+            
+            .hero-contact {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .profile-image-container {
+                width: 320px;
+                height: 320px;
+                margin: 0 auto;
             }
 
             .timeline:before {
@@ -1584,7 +1679,7 @@
             }
 
             .hero {
-                padding: 180px 0 80px;
+                padding: 150px 0 80px;
             }
 
             .hero h1 {
@@ -1593,6 +1688,11 @@
 
             .hero-subtitle {
                 font-size: 18px;
+            }
+            
+            .profile-image-container {
+                width: 280px;
+                height: 280px;
             }
 
             .contact-btn {
@@ -1622,7 +1722,11 @@
 
         @media (max-width: 576px) {
             .hero {
-                padding: 160px 0 60px;
+                padding: 140px 0 60px;
+            }
+            
+            .hero-grid {
+                gap: 40px;
             }
 
             section {
@@ -1663,6 +1767,11 @@
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
+            }
+
+            .profile-image-container {
+                width: 250px;
+                height: 250px;
             }
 
             .loading-container {
@@ -1723,7 +1832,7 @@
                 </div>
                 <div class="logo-text">
                     <span class="logo-name">Kinza Khurram</span>
-                    <span class="logo-title">FULL STACK DEVEL/ MOBILE DEVELOPER</span>
+                    <span class="logo-title">FULL STACK DEVELOPER / MOBILE DEVELOPER</span>
                 </div>
             </a>
 
@@ -1743,25 +1852,37 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Image -->
     <section class="hero">
         <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <h1>Senior Full Stack &<br><span>Mobile Developer</span></h1>
-            <p class="hero-subtitle">5+ years building scalable cross-platform applications with Flutter, React Native &
-                MERN stack. Delivered 9+ production-grade apps across Healthcare, FinTech, Legal Tech, and On-Demand
-                Services.</p>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Senior Full Stack &<br><span>Mobile Developer</span></h1>
+                    <p class="hero-subtitle">5+ years building scalable cross-platform applications with Flutter, React Native &
+                        MERN stack. Delivered 9+ production-grade apps across Healthcare, FinTech, Legal Tech, and On-Demand
+                        Services.</p>
 
-            <div class="hero-contact">
-                <a href="#contact" class="contact-btn">
-                    <i class="fas fa-envelope"></i>Get In Touch
-                </a>
-                <a href="#projects" class="contact-btn">
-                    <i class="fas fa-briefcase"></i>View Projects
-                </a>
-                <a href="#experience" class="contact-btn">
-                    <i class="fas fa-history"></i>My Experience
-                </a>
+                    <div class="hero-contact">
+                        <a href="#contact" class="contact-btn">
+                            <i class="fas fa-envelope"></i>Get In Touch
+                        </a>
+                        <a href="#projects" class="contact-btn">
+                            <i class="fas fa-briefcase"></i>View Projects
+                        </a>
+                        <a href="#experience" class="contact-btn">
+                            <i class="fas fa-history"></i>My Experience
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Profile Image Section - UPDATED TO CIRCLE -->
+                <div class="hero-image">
+                    <div class="profile-image-container">
+                        <img src="./images/kinza khurram pic.jpg" alt="Kinza Khurram - Senior Full Stack Developer" class="profile-image">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2106,7 +2227,7 @@
                         <a href="tel:+923112753361" class="social-link" id="socialLink3">
                             <i class="fas fa-phone-alt"></i>
                         </a>
-                        <a href="" class="social-link" id="socialLink4">
+                        <a href="https://github.com/KinzaKhurram" class="social-link" id="socialLink4">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -2163,7 +2284,7 @@
                         <a href="https://www.linkedin.com/in/kinza-khurram-softengineer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" id="footerSocial2">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" id="footerSocial3">
+                        <a href="https://github.com/KinzaKhurram" id="footerSocial3">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
