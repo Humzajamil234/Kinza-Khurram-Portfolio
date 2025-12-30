@@ -1968,7 +1968,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience Section - UPDATED WITH 2 NEW EXPERIENCES -->
     <section id="experience">
         <div class="container">
             <h2 class="section-title" id="experienceTitle">Work Experience</h2>
@@ -2026,10 +2026,55 @@
                     </div>
                 </div>
 
-                <!-- Experience 3 -->
+                <!-- NEW EXPERIENCE: Brintor - 1 year as Mobile Developer -->
                 <div class="timeline-item" id="timelineItem3">
                     <div class="timeline-content">
-                        <span class="timeline-date">Aug 2022 – Apr 2023</span>
+                        <span class="timeline-date">Jun 2022 – May 2023</span>
+                        <h3 class="timeline-company">Brintor</h3>
+                        <h4 class="timeline-role">Mobile Developer</h4>
+                        <ul class="timeline-desc">
+                            <li>Developed and maintained mobile applications using Flutter and React Native</li>
+                            <li>Collaborated with design teams to implement user-friendly interfaces</li>
+                            <li>Integrated RESTful APIs and third-party services for enhanced functionality</li>
+                            <li>Conducted code reviews and implemented best practices for mobile development</li>
+                            <li>Optimized app performance for better user experience across different devices</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Mobile UI</span>
+                            <span class="tech-tag">Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW EXPERIENCE: Softco - 6 months as Mobile Developer -->
+                <div class="timeline-item" id="timelineItem4">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2022 – Jun 2022</span>
+                        <h3 class="timeline-company">Softco</h3>
+                        <h4 class="timeline-role">Mobile Developer</h4>
+                        <ul class="timeline-desc">
+                            <li>Assisted in developing mobile applications using Flutter framework</li>
+                            <li>Implemented UI components based on design specifications</li>
+                            <li>Participated in Agile development processes and team meetings</li>
+                            <li>Learned and applied mobile development best practices and patterns</li>
+                            <li>Contributed to bug fixing and performance improvements</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">UI Development</span>
+                            <span class="tech-tag">Agile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 5 (Previously Experience 3) -->
+                <div class="timeline-item" id="timelineItem5">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug 2020 – Dec 2021</span>
                         <h3 class="timeline-company">Plural Dynamics</h3>
                         <h4 class="timeline-role">Web Developer</h4>
                         <ul class="timeline-desc">
@@ -2558,17 +2603,19 @@
             });
         }, observerOptions);
 
-        // Observe all elements that need animation
+        // Observe all elements that need animation - UPDATED WITH NEW EXPERIENCE ITEMS
         const elementsToAnimate = [
             // About section
             document.getElementById('aboutTitle'),
             document.getElementById('aboutContent'),
 
-            // Experience section
+            // Experience section - UPDATED WITH NEW ITEMS
             document.getElementById('experienceTitle'),
             document.getElementById('timelineItem1'),
             document.getElementById('timelineItem2'),
             document.getElementById('timelineItem3'),
+            document.getElementById('timelineItem4'),
+            document.getElementById('timelineItem5'),
 
             // Skills section - Added new skill categories
             document.getElementById('skillsTitle'),
